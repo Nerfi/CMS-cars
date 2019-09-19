@@ -8,6 +8,14 @@
 <%= simple_form_for :search, url: cars_path, method: :get do |f| %>
   <div class="search-form-control form-group">
     <input class="form-control string required" type="text" name="query"  id="search_query" />
+     <%= f.input :start_date, as: :time %>
+    <%= f.input :end_date %>
+    <%= f.input :start_date_hour, collection: 0..24 %>
+
+
+
+
+
     <button name="button" type="submit" class="btn btn-flat">
 
 
@@ -20,10 +28,41 @@
 
 <%= simple_form_for :search, url: cars_path, method: :get do |f| %>
   <div class="search-date-form-control form-group">
-        <input class="form-control datetime required" type="datetime"/>
+        <input class="form-control datetime required" type="Datetime" name="date" />
           <%= f.input :start_date %>
           <%= f.input :end_date %>
 
  </div>
 
+<% end %>
+
+
+<div class="month"><%= select_month(Date.today, prompt: 'Choose month') %></div>
+<div class="year"><%= select_year(Date.today, :start_year => Date.today.year, :end_year => 3.years.from_now.year, prompt: 'Choose year') %></div>
+
+
+<%= month_calendar(attribute: :start_date, end_attribute: :end_date) do |date| %>
+  <%= date %>
+<% end %>
+
+
+<%= month_calendar cars: @cars do |date, cars| %>
+  <%= date %>
+
+  <% cars.each do |car| %>
+    <div>
+      <%= car.name %>
+    </div>
+  <% end %>
+<% end %>
+
+  <p>month calendar</p>
+<%= month_calendar(attributes: :start_date && :end_date) do |date| %>
+  <%= date %>
+<% end %>
+
+
+<p>week calendar</p>
+<%= week_calendar number_of_weeks: 2 do |date| %>
+  <%= date %>
 <% end %>

@@ -153,6 +153,8 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    simple_calendar (2.3.0)
+      rails (>= 3.0)
     simple_form (4.1.0)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -170,6 +172,7 @@ GEM
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.9)
+    time_splitter (1.1.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (4.1.20)
@@ -208,9 +211,11 @@ DEPENDENCIES
   rails (= 5.2.3)
   redis
   sassc-rails
+  simple_calendar (~> 2.0)
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
+  time_splitter
   uglifier
   web-console (>= 3.3.0)
   webpacker
