@@ -1,23 +1,29 @@
 class CarsController < ApplicationController
+  before_action :set_car, only: [:show,:edit,:update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index,:show]
+
 
   def index
-    @cars = Car.all
+   @cars = policy_scope(Car).order(created_at: :desc)
+
 
   end
 
   def show
-    @car = Car.find(params[:id])
+
 
   end
 
   def new
     @car = Car.new
+    authorize @car
 
   end
 
   def create
 
    @car = current_user.cars.build(car_params)
+   authorize @car
 
 
     if @car.save
@@ -28,18 +34,18 @@ class CarsController < ApplicationController
   end
 
   def edit
-    @car = Car.find(params[:id])
+
 
   end
 
   def update
-    @car = Car.find(params[:id])
+
     @car.updte(car_params)
 
   end
 
   def destroy
-    @car = Car.find(params[:id])
+
     @car.destroy
 
   end
@@ -51,6 +57,13 @@ class CarsController < ApplicationController
     params.require(:car).permit(:name, :image, :category, :doors , :seats, :gearshift, :air, :lagguage, :pick_up, :start_date, :end_date)
 
   end
+
+  def set_car
+    authorize @car = Car.find(params[:id])
+
+  end
+
+
 end
 
 

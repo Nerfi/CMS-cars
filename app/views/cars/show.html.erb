@@ -1,4 +1,4 @@
-<h1>All our cars</h1>
+<h1>Have a look at <%= @car.name %></h1>
 
 
 <%= @car.name %>
@@ -11,3 +11,6 @@
 <%= @car.air %>
 <%= @car.lagguage %>
 <%= @car.pick_up %>
+<br>
+<p>Available from <%= @car.start_date.strftime("%m/%d/%Y")%> until  <%= @car.end_date.strftime("%m/%d/%Y") %>  </p>
+
