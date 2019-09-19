@@ -6,23 +6,61 @@
 </div>
  <!-- Search form -->
 <%= simple_form_for :search, url: cars_path, method: :get do |f| %>
+<div class="container-flex">
+
+
   <div class="search-form-control form-group">
-    <input class="form-control string required" type="text" name="query"  id="search_query" />
-      <%= f.input :start_date_day, collection: 1..30 %>
 
 
-
-     <%= f.input :start_time, as: :time %>
 
     <button name="button" type="submit" class="btn btn-flat">
-
-
-
       <i class="fas fa-search"></i> Search
     </button>
+
+
+
+      <input class="form-control string required" type="text" name="query"  id="search_query" />
+
+    <div class="align-end">
+        <%= f.input :start_date, collection: 1..30 %>
+      <%= f.input :start_time, as: :time %>
+
+    </div>
+
+
+
+
   </div>
+</div>
 <% end %>
 
 
+<!-- second search function, got more hopes in this one  than in the one above-->
 
 
+<%= simple_form_for :search, url: cars_path, method: :get do |f| %>
+<div class="flex-container">
+
+
+  <div class="flex-item">
+
+  <button name="button" type="submit" class="btn btn-flat">
+      <i class="fas fa-search"></i> Search
+    </button>
+
+    <input class="form-control string required" type="text" name="query"  id="search_query" />
+
+  </div>
+
+    <div class="flex-item">
+       <%= f.input :start_date, collection: 1..30 %>
+      <%= f.input :start_time, as: :time %>
+
+
+    </div>
+
+
+
+</div>
+
+<% end %>
