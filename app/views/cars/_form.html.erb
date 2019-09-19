@@ -1,0 +1,40 @@
+<div class="container">
+
+  <div class="row justify-content-center">
+
+    <div class="col-md-8">
+      <%= simple_form_for (@car) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :category %>
+    <%= f.input :image %>
+    <!-- delete from here f.input :image_cache -->
+    <%= f.input :doors %>
+    <%= f.input :seats %>
+    <%= f.input :gearshift %>
+    <%= f.input :air %>
+    <%= f.input :lagguage %>
+    <%= f.input :pick_up %>
+
+    <%= f.submit "create car", class: "btn btn-primary" %>
+  <% end %>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+<% if @car.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@car.errors.count, "error") %> prohibited this car from being saved:</h2>
+
+    <ul>
+    <% @car.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+
+<% end %>
