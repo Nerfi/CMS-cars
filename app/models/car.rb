@@ -1,8 +1,13 @@
 class Car < ApplicationRecord
   belongs_to :user
 
-  def start_time
-    self.car.start
 
-  end
+
+
+
+   extend TimeSplitter::Accessors
+  #split_accessor :start_date
+  split_accessor :start_date, date_format: "%D", time_format: "%I:%M%p"
+
+
 end
