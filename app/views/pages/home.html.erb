@@ -11,8 +11,8 @@
 
 
 <%= simple_form_for :search, url: cars_path, method: :get do |f| %>
-<div class="flex-container">
 
+<div class="flex-container">
 
   <div class="flex-item">
 
@@ -21,16 +21,16 @@
   </div>
 
     <div class="flex-item">
-       <%= f.input :start_day, collection: 1..30  %>
+      <label for="start">Start date:</label>
+      <input id="date" type="date">
 
 
-      <%= f.input :start_time, as: :time %>
 
 
     </div>
       <div class="flex-item">
-       <%= f.input :end_date, collection: 1..30 %>
-      <%= f.input :end_time, as: :time %>
+       <label for="start">End date:</label>
+      <input id="date" type="date" name="end_date" id="search_query">
 
 
       </div>
