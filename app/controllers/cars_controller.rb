@@ -4,6 +4,8 @@ class CarsController < ApplicationController
 
 
   def index
+    #raise
+
    @cars = policy_scope(Car).order(created_at: :desc)
 
 

@@ -60,12 +60,23 @@
   display: flex;
   //flex-wrap: wrap;
 flex-wrap: wrap;
+background-color: #9B897A;
+color: white;
+align-items: center;
 
 
 }
 
 .flex-item {
-  flex: 0 0 30%;
+  flex: 0 0 25%;
+}
+
+.string {
+
+margin-bottom: 15px;
 }
 
 
+.fas {
+  color:white;
+}

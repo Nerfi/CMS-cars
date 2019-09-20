@@ -6,8 +6,8 @@ class Car < ApplicationRecord
 
 
    extend TimeSplitter::Accessors
-  #split_accessor :start_date
-  split_accessor :start_date, date_format: "%D", time_format: "%I:%M%p"
+  split_accessor :start_date
+  #split_accessor :start_date, date_format: "%D", time_format: "%I:%M%p"
 
 
 end
