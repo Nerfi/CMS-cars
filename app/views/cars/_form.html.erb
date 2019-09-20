@@ -1,3 +1,17 @@
+<% if @car.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@car.errors.count, "error") %> prohibited this car from being saved:</h2>
+
+    <ul>
+    <% @car.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+
+<% end %>
+
+
 <div class="container">
 
   <div class="row justify-content-center">
@@ -14,8 +28,12 @@
     <%= f.input :air %>
     <%= f.input :lagguage %>
     <%= f.input :pick_up %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
+
+    <div class="flex-container">
+    <%= f.datetime_field :start_date, class: "fa fa-calendar"%>
+    <%= f.datetime_field :end_date,  class: "fa fa-calendar" %>
+
+    </div>
 
     <%= f.submit "create car", class: "btn btn-primary" %>
   <% end %>
@@ -27,16 +45,3 @@
 </div>
 
 
-
-<% if @car.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@car.errors.count, "error") %> prohibited this car from being saved:</h2>
-
-    <ul>
-    <% @car.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-
-<% end %>
