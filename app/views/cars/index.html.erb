@@ -1,5 +1,6 @@
 <% @cars.each do |car| %>
   <%= car.name %>
+  <%= cl_image_tag car.image, height: 150, width: 400, crop: :fill %>
   <%= car.category %>
   <%= car.doors %>
   <%= car.seats %>

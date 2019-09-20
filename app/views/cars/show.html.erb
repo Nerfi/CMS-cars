@@ -5,7 +5,7 @@
   <div class="row justify-content-center">
     <div class="col-12  col-lg-7">
       <%= @car.name %>
-      <%= @car.image %>
+      <%= cl_image_tag @car.image, height: 300, width: 400, crop: :fill %>
     <br>
       <%= @car.category %>
       <%= @car.doors %>
