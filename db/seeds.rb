@@ -1,9 +1,10 @@
 puts 'creating cars'
 
-usuario = User.new(
-  email: 'juanako@me.com',
-  password:123456
-  )
+  usuario = User.new (
+    email: 'juanharobado@gmail.com',
+    password: 123456
+
+    )
   usuario.save
 
 
@@ -16,6 +17,7 @@ usuario = User.new(
     start_date: DateTime.strptime("09/01/2009 17:00", "%m/%d/%Y %H:%M"),
     user: usuario,
 
+
     end_date: DateTime.strptime("09/01/2009 19:00", "%m/%d/%Y %H:%M")
 
 
@@ -23,3 +25,5 @@ usuario = User.new(
    coche.save!
 
 puts "done"
+
+
