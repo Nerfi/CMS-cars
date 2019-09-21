@@ -12,7 +12,8 @@ class CarsController < ApplicationController
 
       @cars = Car.where("name ILIKE ?", "%#{params[:query]}%")
 
-    elsif params[:start_date].present?
+    elsif
+      params[:start_date].present?
        #@cars = Car.extract("start_date" ,"%#{params[:start_date]}%")
         @cars = Car.group_by_day(:start_date).count
 
