@@ -12,7 +12,8 @@ class Car < ApplicationRecord
   validates :lagguage, presence: true
   validates :pick_up, presence: true
   validates :start_date, presence: true
-  validates :end_date, presence: true
+  #validates end_date, presence true
+  validates :end_date_is_after_start_date , presence: true
 
  #photo uploader
   mount_uploader :image, PhotoUploader
@@ -26,6 +27,17 @@ class Car < ApplicationRecord
 
    extend TimeSplitter::Accessors
   split_accessor :start_date
+
+  private
+
+  def end_date_is_after_start_date
+  return if end_date.blank? || start_date.blank?
+
+  if end_date < start_date
+    errors.add(:end_date, "cannot be before the start date")
+  end
+end
+
 
 
 
