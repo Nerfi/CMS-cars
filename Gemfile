@@ -18,6 +18,9 @@ gem "time_splitter"
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 
+#group_date gem
+gem 'groupdate'
+
 
 
 gem 'autoprefixer-rails'

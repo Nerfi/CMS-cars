@@ -4,13 +4,18 @@ class CarsController < ApplicationController
 
 
   def index
+
     #raise
    @cars = policy_scope(Car).order(created_at: :desc)
+
    if params[:query].present?
+
       @cars = Car.where("name ILIKE ?", "%#{params[:query]}%")
 
-    elsif params[:query].present? || params[:start_date].present?
-      @cars = Car.where("name ILIKE ?", "%#{params[:query]}%") || @cars = Car.select("start_date = ?", params[:start_date])
+    elsif params[:start_date].present?
+       #@cars = Car.extract("start_date" ,"%#{params[:start_date]}%")
+        @cars = Car.group_by_day(:start_date).count
+
 
       else
         @cars = Car.all
