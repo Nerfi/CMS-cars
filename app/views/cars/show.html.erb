@@ -25,3 +25,12 @@
   </div>
 
 </div>
+
+
+<!-- Adding form to create a booking -->
+<%= form_tag bookings_path do %>
+  <%= hidden_field_tag 'car_id', @car.id %>
+  <%= submit_tag 'Book', class: 'btn btn-primary' %>
+<% end %>
+
+
