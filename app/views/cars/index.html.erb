@@ -1,7 +1,6 @@
 <% if @query.present? %>
    <p>You searched for <strong><%= @query %></strong>. We found <%= @cars.count %> cars out of our <%= Car.count %> on our website.</p>
 
-
 <% end %>
 
 <% @cars.each do |car| %>
@@ -12,5 +11,6 @@
   <%= car.seats %>
   <%= car.air %>
   <%= car.start_date %>
+  <%= link_to "More details", car_path(car), class: "btn btn-primary" %>
 <% end %>
 

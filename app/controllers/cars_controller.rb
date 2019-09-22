@@ -39,9 +39,10 @@ class CarsController < ApplicationController
 
   def create
 
-   @car = current_user.cars.build(car_params)
+   #@car = current_user.cars.build(car_params)
+   @car = Car.new(car_params)
+   @car.user = current_user
    authorize @car
-
 
     if @car.save
       redirect_to car_path(@car), notice: 'car was created'

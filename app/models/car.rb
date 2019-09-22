@@ -13,16 +13,13 @@ class Car < ApplicationRecord
   validates :pick_up, presence: true
   validates :start_date, presence: true
   #validates end_date, presence true
-  validates :end_date_is_after_start_date , presence: true
+  validate :end_date_is_before_start_date
 
  #photo uploader
   mount_uploader :image, PhotoUploader
 
-
-
-
-
-
+  #money rails
+    monetize :price_cents
 
 
    extend TimeSplitter::Accessors
@@ -30,11 +27,11 @@ class Car < ApplicationRecord
 
   private
 
-  def end_date_is_after_start_date
-  return if end_date.blank? || start_date.blank?
+  def end_date_is_before_start_date
+    return if end_date.blank? || start_date.blank?
 
   if end_date < start_date
-    errors.add(:end_date, "cannot be before the start date")
+    errors.add(:start_date, "cannot be before the start date")
   end
 end
 
