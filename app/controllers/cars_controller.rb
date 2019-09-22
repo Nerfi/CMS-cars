@@ -10,7 +10,7 @@ class CarsController < ApplicationController
 
    if params[:query].present?
 
-      @cars = Car.where("name ILIKE ?", "%#{params[:query]}%")
+      @cars = Car.where("pick_up ILIKE ?", "%#{params[:query]}%")
 
     elsif
       params[:start_date].present? && params[:end_date]
