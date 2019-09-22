@@ -14,6 +14,8 @@
       <%= @car.air %>
       <%= @car.lagguage %>
       <%= @car.pick_up %>
+      <p>Amount: <%= humanized_money_with_symbol(@car.price) %></p>
+
       <br>
 
       <p> Available from<%= @car.start_date.strftime( "%d/%m/%Y %H:%M")  %> until <%= @car.end_date.strftime( "%d/%m/%Y %H:%M") %></p>

@@ -22,6 +22,9 @@ gem 'carrierwave', '~> 1.2'
 gem 'groupdate'
 #money rails stripe
 gem 'money-rails'
+#stripe
+gem 'stripe'
+
 
 
 
