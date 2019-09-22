@@ -1,3 +1,9 @@
+<% if @query.present? %>
+   <p>You searched for <strong><%= @query %></strong>. We found <%= @cars.count %> cars out of our <%= Car.count %> on our website.</p>
+
+
+<% end %>
+
 <% @cars.each do |car| %>
   <%= car.name %>
   <%= cl_image_tag car.image, height: 150, width: 400, crop: :fill %>
@@ -7,3 +13,4 @@
   <%= car.air %>
   <%= car.start_date %>
 <% end %>
+
