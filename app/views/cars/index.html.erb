@@ -11,6 +11,8 @@
   <%= car.seats %>
   <%= car.air %>
   <%= car.start_date %>
+  <p>Day price: <%= humanized_money_with_symbol(car.price) %></p>
+
   <%= link_to "More details", car_path(car), class: "btn btn-primary" %>
 <% end %>
 
