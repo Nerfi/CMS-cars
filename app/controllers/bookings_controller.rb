@@ -4,7 +4,9 @@ class BookingsController < ApplicationController
     #raise
     car = Car.find(params[:car_id])
 
+
    booking = Booking.create!(car: car, car_sku: car.sku, amount: car.price, state: 'pending', user: current_user)
+   authorize booking
 
 
   session = Stripe::Checkout::Session.create(
@@ -25,6 +27,13 @@ class BookingsController < ApplicationController
 
 
 end
+
+def show
+  @booking = current_user.bookings.find(params[:id])
+  authorize @booking
+end
+
+
 
 
 
