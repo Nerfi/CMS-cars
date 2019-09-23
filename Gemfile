@@ -24,6 +24,7 @@ gem 'groupdate'
 gem 'money-rails'
 #stripe
 gem 'stripe'
+gem 'stripe_event'
 
 
 
