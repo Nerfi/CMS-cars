@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
    skip_before_action :authenticate_user!, only: :show
+
   def create
     #raise
     car = Car.find(params[:car_id])
