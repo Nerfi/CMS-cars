@@ -1,5 +1,5 @@
 puts 'creating cars'
-user = User.create!(email: 'juajasdan@meme.com', password: 123456)
+user = User.create!(email: 'juankjasdan@meme.com', password: 123456)
 
    coche = Car.new(
     name: "Masserati",
@@ -15,7 +15,7 @@ user = User.create!(email: 'juajasdan@meme.com', password: 123456)
     sku: 'original-Maserati',
     image: 'https://images.unsplash.com/photo-1517994112540-009c47ea476b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=781&q=80',
     end_date: DateTime.strptime("09/01/2009 19:00", "%m/%d/%Y %H:%M"),
-    price: 20.000
+    price: 20.00
 
 
     )
