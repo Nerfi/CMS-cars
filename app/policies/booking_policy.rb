@@ -9,4 +9,10 @@ class BookingPolicy < ApplicationPolicy
     true
 
   end
+
+  def show?
+    create?
+
+  end
+
 end
