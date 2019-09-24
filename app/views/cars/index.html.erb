@@ -10,12 +10,15 @@
    <div class="card">
     <%= car.name %>
     <%= cl_image_tag car.image, height: 50, width: 400, crop: :fill %>
-    <%= car.category %>
-    <%= car.doors %>
-    <%= car.seats %>
-    <%= car.air %>
-    <%= car.start_date %>
+    <div class="flexx-container">
+
+      <%= car.category %>
+      <a><%= car.doors %><i class="fa fa-user" aria-hidden="true"></i></a>
+      <%= car.seats %>
+
       <p>Day price: <%= humanized_money_with_symbol(car.price) %></p>
+      <%= car.air %>
+    </div>
 
     <%= link_to "More details", car_path(car) %>
 

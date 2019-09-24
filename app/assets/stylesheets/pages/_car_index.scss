@@ -23,6 +23,15 @@
 }
 
 
+//flexx-container
+
+.flexx-container {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
