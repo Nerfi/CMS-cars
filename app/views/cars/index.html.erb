@@ -3,16 +3,28 @@
 
 <% end %>
 
-<% @cars.each do |car| %>
-  <%= car.name %>
-  <%= cl_image_tag car.image, height: 150, width: 400, crop: :fill %>
-  <%= car.category %>
-  <%= car.doors %>
-  <%= car.seats %>
-  <%= car.air %>
-  <%= car.start_date %>
-  <p>Day price: <%= humanized_money_with_symbol(car.price) %></p>
+<div class="main-container">
 
-  <%= link_to "More details", car_path(car), class: "btn btn-primary" %>
-<% end %>
+<div class="cards">
+    <% @cars.each do |car| %>
+   <div class="card">
+    <%= car.name %>
+    <%= cl_image_tag car.image, height: 50, width: 400, crop: :fill %>
+    <%= car.category %>
+    <%= car.doors %>
+    <%= car.seats %>
+    <%= car.air %>
+    <%= car.start_date %>
+      <p>Day price: <%= humanized_money_with_symbol(car.price) %></p>
+
+    <%= link_to "More details", car_path(car) %>
+
+  </div>
+    <% end %>
+
+
+</div>
+
+
+</div>
 
