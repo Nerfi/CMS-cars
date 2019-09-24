@@ -30,4 +30,16 @@
 
 
 </div>
+<!-- DISPLAYING CARS BY CATEGORY -->
 
+<div class="flexx-container">
+
+<% @cars.each do |car| %>
+  <% if car.category === 'Económico' %>
+    <%= car.name %>
+     <%= cl_image_tag car.image, height: 50, width: 400, crop: :fill %>
+
+  <% end %>
+<% end %>
+
+</div>
