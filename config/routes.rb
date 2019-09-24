@@ -12,8 +12,16 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :cars
 
+  # Adding index action in API
+   namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :cars, only: [ :index ]
+    end
+  end
 
-  #added address from ngrok
+
+
+  #added address from ngrok maybe the URL not should be there
     mount StripeEvent::Engine, at: 'https://4d3265ab.ngrok.io /stripe-webhooks'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
