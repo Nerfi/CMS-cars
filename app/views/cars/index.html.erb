@@ -11,13 +11,11 @@
     <%= car.name %>
     <%= cl_image_tag car.image, height: 50, width: 400, crop: :fill %>
     <div class="flexx-container">
+      <a><img src="https://img.icons8.com/windows/32/000000/airbag-off.png"><%= car.seats %></a>
+      <a><img src="https://img.icons8.com/material-sharp/24/000000/car-door--v2.png"><%= car.doors %></a>
+      <a><img src="https://img.icons8.com/small/24/000000/cooling.png"><%= car.air %></a>
+      <a><img src="https://img.icons8.com/ios/30/000000/bag-diagonal-view.png"><%= car.lagguage %></a>
 
-      <%= car.category %>
-      <a><%= car.doors %><i class="fa fa-user" aria-hidden="true"></i></a>
-      <%= car.seats %>
-
-      <p>Day price: <%= humanized_money_with_symbol(car.price) %></p>
-      <%= car.air %>
     </div>
 
     <%= link_to "More details", car_path(car) %>
@@ -30,16 +28,8 @@
 
 
 </div>
-<!-- DISPLAYING CARS BY CATEGORY -->
 
-<div class="flexx-container">
+<a href="https://icons8.com/icon/32148/door">Door icon by Icons8</a>
 
-<% @cars.each do |car| %>
-  <% if car.category === 'Económico' %>
-    <%= car.name %>
-     <%= cl_image_tag car.image, height: 50, width: 400, crop: :fill %>
 
-  <% end %>
-<% end %>
 
-</div>

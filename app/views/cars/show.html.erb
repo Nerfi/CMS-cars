@@ -1,38 +1,26 @@
-<h1>Have a look at <%= @car.name %></h1>
- <%= link_to "Mis reservas", user_booking_path(current_user.booking_ids)  %>
-
 
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-12  col-lg-7">
-      <%= @car.name %>
-      <%= cl_image_tag @car.image, height: 300, width: 400, crop: :fill %>
-    <br>
-      <%= @car.category %>
-      <%= @car.doors %>
-      <%= @car.seats %>
-      <%= @car.gearshift %>
-      <%= @car.air %>
-      <%= @car.lagguage %>
-      <%= @car.pick_up %>
-      <p>Amount: <%= humanized_money_with_symbol(@car.price) %></p>
+  <div class="row">
 
-      <br>
+    <div class="col-12 col-lg-8">
+       <h1>Marca: <%= @car.name %></h1>
+      <h2>Categoria: <%= @car.category %></h2>
+      <p> Disponible desde<%= @car.start_date.strftime( "%d/%m/%Y %H:%M")  %> Hasta <%= @car.end_date.strftime( "%d/%m/%Y %H:%M") %></p>
+        <p>Amount: <%= humanized_money_with_symbol(@car.price) %></p>
+        <p>Recogida en <%= @car.pick_up %></p>
+        <p>Cambio: <%= @car.gearshift %></p>
 
-      <p> Available from<%= @car.start_date.strftime( "%d/%m/%Y %H:%M")  %> until <%= @car.end_date.strftime( "%d/%m/%Y %H:%M") %></p>
+       <%= form_tag bookings_path do %>
+      <%= hidden_field_tag 'car_id', @car.id %>
+      <%= submit_tag 'Book', class: 'btn btn-primary' %>
+    <% end %>
+
 
     </div>
 
+    <div class="col-12 col-lg-4">
+      <%= cl_image_tag @car.image, height: 300, width: 400, crop: :fill %>
+    </div>
+
   </div>
-
 </div>
-
-
-<!-- Adding form to create a booking -->
-<%= form_tag bookings_path do %>
-  <%= hidden_field_tag 'car_id', @car.id %>
-  <%= submit_tag 'Book', class: 'btn btn-primary' %>
-<% end %>
-
-
-
