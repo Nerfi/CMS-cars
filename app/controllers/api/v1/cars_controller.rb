@@ -25,7 +25,7 @@ class Api::V1::CarsController < Api::V1::BaseController
     else
       render_error
       end
-   end
+  end
 
   end
 
@@ -52,4 +52,4 @@ class Api::V1::CarsController < Api::V1::BaseController
       status: :unprocessable_entity
   end
 
-end
+
