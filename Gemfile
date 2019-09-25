@@ -26,6 +26,10 @@ gem 'money-rails'
 gem 'stripe'
 gem 'stripe_event'
 
+#gem to generate a simple token for API
+gem 'simple_token_authentication'
+
+
 
 
 

@@ -12,10 +12,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :cars
 
-  # Adding index action in API
+  # Adding  API routes
    namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :cars, only: [ :index ]
+      resources :cars, only: [ :index, :show, :update ]
     end
   end
 
