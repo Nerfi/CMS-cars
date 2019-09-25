@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # Adding  API routes
    namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :cars, only: [ :index, :show, :update ]
+      resources :cars, only: [ :index, :show, :update, :create, :destroy ]
     end
   end
 
