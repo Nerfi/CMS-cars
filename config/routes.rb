@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
 
   #added address from ngrok maybe the URL not should be there
-    mount StripeEvent::Engine, at: 'https://4d3265ab.ngrok.io /stripe-webhooks'
+    mount StripeEvent::Engine, at: '/stripe-webhooks'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
