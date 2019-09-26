@@ -11,19 +11,22 @@ class CarsController < ApplicationController
    when
     params[:query].present?
 
-    #@cars = Car.where("pick_up ILIKE ?", "%#{params[:query]}%")
-    @cars = Car.search(params[:query])
+    @cars = Car.where("pick_up ILIKE ?", "%#{params[:query]}%")
+    #@cars = Car.search(params[:query])
 
     when
     params[:start_date].present? && params[:end_date].present?
     @query = params[:start_date]&& params[:end_date]
     @cars = Car.where("start_date >= ? and end_date <= ?", params[:start_date], params[:end_date])
 
-    when
-        #not working returning all the cars
-     params[:end_date].present? || params[:start_date].present?
-     @query = params[:end_date] || params[:start_date]
-      @car = Car.where("start_date >= ? or end_date <= ?",params[:start_date],params[:end_date])
+    when params[:start_date].present?
+      @query = params[:start_date]
+      @cars = Car.where("start_date >= ?",params[:start_date])
+
+    when params[:end_date].present?
+
+     @query = params[:end_date]
+      @cars = Car.where("end_date >= ?",params[:end_date])
 
       else
 
