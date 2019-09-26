@@ -4,7 +4,12 @@
     <div class="col">
       <h1>Checkout summary</h1>
       <p>Book of <strong><%= @booking.car.name %></strong> for <strong><%= humanized_money_with_symbol @booking.amount %></strong></p>
-      <p>Select Start date <%= @booking.start_date %>
+      <p>Recuerda que esta disponible desde <%= @booking.car.start_date %></p>
+      <p>hasta <%= @booking.car.end_date %></p>
+      <%= cl_image_tag @booking.car.image, height: 300, width: 400, crop: :fill %>
+      <p>Select Start date
+      <input id="date" type="date" name="start_date" id="search_query"></p>
+       <p>Select end date
       <input id="date" type="date" name="start_date" id="search_query"></p>
 
 
@@ -12,7 +17,11 @@
 
 
 
-      <button id="pay" class="btn btn-primary">Pay</button>
+
+
+
+
+      <button id="pay" class="btn btn-primary">Reservar!</button>
 
       <script src="https://js.stripe.com/v3/"></script>
       <script>

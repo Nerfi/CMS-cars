@@ -5,20 +5,28 @@ class CarsController < ApplicationController
 
   def index
 
-   # raise
    @cars = policy_scope(Car).order(created_at: :desc)
+   case
 
-   if params[:query].present?
+   when
+    params[:query].present?
 
-      @cars = Car.where("pick_up ILIKE ?", "%#{params[:query]}%")
+    #@cars = Car.where("pick_up ILIKE ?", "%#{params[:query]}%")
+    @cars = Car.search(params[:query])
 
-    elsif
-      params[:start_date].present? && params[:end_date]
-      @query = params[:start_date]
-       @cars = Car.where("start_date >= ? and end_date <= ?", params[:start_date], params[:end_date])
+    when
+    params[:start_date].present? && params[:end_date].present?
+    @query = params[:start_date]&& params[:end_date]
+    @cars = Car.where("start_date >= ? and end_date <= ?", params[:start_date], params[:end_date])
 
+    when
+        #not working returning all the cars
+     params[:end_date].present? || params[:start_date].present?
+     @query = params[:end_date] || params[:start_date]
+      @car = Car.where("start_date >= ? or end_date <= ?",params[:start_date],params[:end_date])
 
       else
+
         @cars = Car.all
 
     end

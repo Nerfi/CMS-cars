@@ -1,8 +1,8 @@
 puts 'creating cars'
-user = User.create!(email: 'juankjaddsffsdan@meme.com', password: 123456)
+user = User.create!(email: 'fsdan@meme.com', password: 123456)
 
    coche = Car.new(
-    name: "Ferrarddi",
+    name: "Buggati",
     category: "SUV",
     doors: 2,
     seats: 4,

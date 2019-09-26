@@ -2,7 +2,13 @@ class BookingsController < ApplicationController
    skip_before_action :authenticate_user!, only: :show
 
   def create
-    #raise
+
+
+    #booking = Booking.joins(:cars).where("cars.start_date >= ?", Booking.start_date).where("end_date <= end_date",
+     #Date.new(2019, 9, 1)).where("date < ?", Date.new(2019, 9, 30)).order(date: :desc)
+
+    #Booking.joins(:car).where(car.start_date >= ?", Booking.start_date).where(car.end_date <= ?", Booking.end_date)
+
     car = Car.find(params[:car_id])
 
 
@@ -14,7 +20,7 @@ class BookingsController < ApplicationController
     payment_method_types: ['card'],
     line_items: [{
       name: car.sku,
-      #images: [car.image],
+      images: [car.image],
       amount: car.price_cents.to_i,
       currency: 'eur',
       quantity: 1

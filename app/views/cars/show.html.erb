@@ -5,7 +5,7 @@
     <div class="col-12 col-lg-8">
        <h1>Marca: <%= @car.name %></h1>
       <h2>Categoria: <%= @car.category %></h2>
-      <p> Disponible desde<%= @car.start_date.strftime( "%d/%m/%Y %H:%M")  %> Hasta <%= @car.end_date.strftime( "%d/%m/%Y %H:%M") %></p>
+      <p> Disponible desde <%= @car.start_date.strftime( "%d/%m/%Y %H:%M")%> Hasta <%= @car.end_date.strftime( "%d/%m/%Y %H:%M") %></p>
         <p>Amount: <%= humanized_money_with_symbol(@car.price) %></p>
         <p>Recogida en <%= @car.pick_up %></p>
         <p>Cambio: <%= @car.gearshift %></p>
