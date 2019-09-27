@@ -1,6 +1,6 @@
 puts 'cleaning DB '
 
-user = User.create!(email: 'cleverr@meme.com', password: 123456)
+user = User.create!(email: 'delaosa@meme.com', password: 123456)
   puts 'creating cars'
 
 
@@ -68,7 +68,7 @@ user = User.create!(email: 'cleverr@meme.com', password: 123456)
       gearshift: 'manual',
       air: true,
       start_date: DateTime.strptime("10/25/2009 17:00", "%m/%d/%Y %H:%M"),
-      end_date: DateTime.strptime("10/26/2009 17:00", "%m/%d/%Y %H:%M"),
+      end_date: DateTime.strptime("10/30/2009 17:00", "%m/%d/%Y %H:%M"),
       user: user,
       sku: 'leon',
       remote_image_url: 'https://res.cloudinary.com/nerfi/image/upload/v1569584929/bde9osdw9stjhg7lpqgh.jpg',
@@ -85,7 +85,7 @@ user = User.create!(email: 'cleverr@meme.com', password: 123456)
       gearshift: 'manual',
       air: true,
       start_date: DateTime.strptime("11/25/2009 17:00", "%m/%d/%Y %H:%M"),
-      end_date: DateTime.strptime("10/29/2009 17:00", "%m/%d/%Y %H:%M"),
+      end_date: DateTime.strptime("12/29/2009 17:00", "%m/%d/%Y %H:%M"),
       user: user,
       sku: 'leon',
       remote_image_url: 'https://res.cloudinary.com/nerfi/image/upload/v1569584929/bde9osdw9stjhg7lpqgh.jpg',

@@ -77,6 +77,8 @@ class CarsController < ApplicationController
 
     @car.destroy
 
+    redirect_to cars_path
+
   end
 
   private
