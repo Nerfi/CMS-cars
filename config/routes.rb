@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: :show do
-    resources :bookings, only: :show
+    resources :bookings, only: :index
   end
 
   root to: 'pages#home'
