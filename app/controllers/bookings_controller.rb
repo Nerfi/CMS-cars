@@ -4,11 +4,6 @@ class BookingsController < ApplicationController
   def create
 
 
-    #booking = Booking.joins(:cars).where("cars.start_date >= ?", Booking.start_date).where("end_date <= end_date",
-     #Date.new(2019, 9, 1)).where("date < ?", Date.new(2019, 9, 30)).order(date: :desc)
-
-    #Booking.joins(:car).where(car.start_date >= ?", Booking.start_date).where(car.end_date <= ?", Booking.end_date)
-
     car = Car.find(params[:car_id])
 
 
@@ -24,6 +19,7 @@ class BookingsController < ApplicationController
       amount: car.price_cents.to_i,
       currency: 'eur',
       quantity: 1
+
     }],
     success_url: booking_url(booking),
     cancel_url: booking_url(booking)

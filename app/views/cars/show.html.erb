@@ -19,10 +19,6 @@
     </div>
 
     <div class="col-12 col-lg-4">
-       <% if policy(Car).create? %>
-        <%= link_to "New car", new_car_path %>
-        <% end %>
-
 
       <%= cl_image_tag @car.image, height: 300, width: 400, crop: :fill %>
     </div>
