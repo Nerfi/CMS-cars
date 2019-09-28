@@ -33,6 +33,7 @@
 
 
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <%= link_to "mis reservas", user_bookings_path  %>
           </div>
         </li>
       <% else %>
@@ -43,3 +44,5 @@
     </ul>
   </div>
 </div>
+
+
