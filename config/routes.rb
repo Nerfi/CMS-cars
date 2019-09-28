@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       resources :payments, only: :new
   end
 
-  resources :users, only: :show do
+  resources :users do
     resources :bookings, only: :index
   end
 

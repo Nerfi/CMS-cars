@@ -18,7 +18,7 @@ class CarPolicy < ApplicationPolicy
   end
 
   def show?
-    #everyone can see an article
+    #everyone can see a car
     return true
 
   end
