@@ -1,4 +1,11 @@
 <h1>Your bookings</h1>
-<%= @bookings.name %>
 
+<% @current_user.bookings.each do |booking| %>
+<%=  booking.car.name%>
+<%= booking.car.start_date %>
+<%= booking.car_sku %>
 
+<%= cl_image_tag booking.car.image, height: 300, width: 400, crop: :fill %>
+<%= booking.car.price %>
+<%= booking.car.end_date %>
+<% end %>

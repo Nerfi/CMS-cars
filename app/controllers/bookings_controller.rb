@@ -9,13 +9,10 @@ class BookingsController < ApplicationController
    end
 
   def create
-
-
     car = Car.find(params[:car_id])
 
-
-   booking = Booking.create!(car: car, car_sku: car.sku, amount: car.price, state: 'pending', user: current_user)
-   authorize booking
+   @booking = Booking.create!(car: car, car_sku: car.sku, amount: car.price, state: 'pending', user: current_user, photo: car.image )
+   authorize @booking
 
 
   session = Stripe::Checkout::Session.create(
@@ -28,17 +25,18 @@ class BookingsController < ApplicationController
       quantity: 1
 
     }],
-    success_url: booking_url(booking),
-    cancel_url: booking_url(booking)
+    success_url: booking_url(@booking),
+    cancel_url: booking_url(@booking)
   )
 
-  booking.update(checkout_session_id: session.id)
-  redirect_to new_booking_payment_path(booking)
+  @booking.update(checkout_session_id: session.id)
+  redirect_to new_booking_payment_path(@booking)
 
 
 end
 
 def show
+
   @booking = current_user.bookings.find(params[:id])
   authorize @booking
 end
