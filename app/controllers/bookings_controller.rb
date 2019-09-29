@@ -41,9 +41,14 @@ def show
   authorize @booking
 end
 
-def refund
 
-  cards = Car.find(params[:id])
+
+def destroy
+
+  car = Car.find(params[:id])
+
+  @booking = Booking.refound!(car: car, car_sku: car.sku, amount: car.price, state: 'pending', user: current_user, photo: car.image )
+
 
   refund = Stripe::Refund.create({
     payment_method_types: ['card'],
@@ -52,20 +57,23 @@ def refund
       images: [car.image],
       amount: car.price_cents.to_i,
       currency: 'eur',
+      charge: 'ch_RKOdOxIfdMYWBUt2ECl7',
       quantity: 1
 
     }],
-    charge: 'ch_RKOdOxIfdMYWBUt2ECl7',
     success_url: booking_url(@booking),
     cancel_url: booking_url(@booking)
 })
-   @booking.update(checkout_session_id: session.id)
-  redirect_to new_booking_payment_path(@booking)
+   @booking.update(charge_refunded: session.id)
+  redirect_to booking_path(@booking)
 
 
   authorize @booking
 
 end
+
+
+
 
 
 
