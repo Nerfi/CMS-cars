@@ -1,11 +1,27 @@
 <h1>Your bookings</h1>
 
-<% @current_user.bookings.each do |booking| %>
-<%=  booking.car.name%>
-<%= booking.car.start_date %>
-<%= booking.car_sku %>
+<div class="container">
 
-<%= cl_image_tag booking.car.image, height: 300, width: 400, crop: :fill %>
-<%= booking.car.price %>
-<%= booking.car.end_date %>
-<% end %>
+  <div class="row">
+      <% @current_user.bookings.each do |booking| %>
+    <div class="col-12 col-lg-8">
+      <%= cl_image_tag booking.car.image, height: 300, width: 400, crop: :fill %>
+
+
+    </div>
+
+    <div class="col-12 col-lg-4">
+      <h3> <%= booking.car.name%> </h3>
+      <p> <%= booking.car.start_date %></p>
+      <strong><%= booking.car.price %>€/día</strong>
+      <p><%= booking.car.end_date %></p>
+
+
+    </div>
+    <% end %>
+
+  </div>
+</div>
+
+
+
