@@ -30,6 +30,9 @@ gem 'stripe_event'
 gem 'simple_token_authentication'
 
 
+gem 'bundler', '~> 2.0'
+
+
 
 
 
@@ -51,4 +54,5 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
+
 end
