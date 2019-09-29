@@ -15,6 +15,8 @@
       <p> <%= booking.car.start_date %></p>
       <strong><%= booking.car.price %>€/día</strong>
       <p><%= booking.car.end_date %></p>
+      <%= button_to "Cancel my book", booking_path(booking), :data => { :confirm => "Are you sure?" }, :method => :delete, class: "btn btn-default btn-xs" %>
+
 
 
     </div>
