@@ -25,3 +25,9 @@ gem 'stripe_event'
 #gem to generate a simple token for API
 gem 'simple_token_authent
 - API ENDPOINTS
+- /api/v1/cars                                                                cars#index
+-  POST   /api/v1/cars 
+- GET    /api/v1/cars/:id
+- PATCH  /api/v1/cars/:id
+- PUT    /api/v1/cars/:id
+- DELETE /api/v1/cars/:id
