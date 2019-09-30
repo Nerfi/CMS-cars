@@ -45,8 +45,9 @@ end
 
 def destroy
 
-  authorize @booking = Car.find(params[:id])
+  @booking = Booking.find(params[:id])
   @booking.destroy
+  authorize @booking
   redirect_to  cars_path
 end
 

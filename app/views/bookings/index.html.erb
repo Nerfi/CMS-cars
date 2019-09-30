@@ -12,11 +12,10 @@
 
     <div class="col-12 col-lg-4">
       <h3> <%= booking.car.name%> </h3>
-      <p> Desde <%= booking.car.start_date %></p>
-      <p>Hasta <%= booking.car.end_date %></p>
+      <p> <%= booking.car.start_date %></p>
       <strong><%= booking.car.price %>€/día</strong>
-      <!-- not working, dont knwo how to set up the refund method with STRIPE -->
-      <%= button_to "Cancelar mi reserva", booking, :data => { :confirm => "Are you sure?" }, :method => :destroy %>
+      <p><%= booking.car.end_date %></p>
+      <%= button_to "Cancel my book", booking, :data => { :confirm => "Are you sure?" }, :method => :delete, class: "btn btn-default " %>
 
 
 
