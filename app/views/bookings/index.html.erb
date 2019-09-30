@@ -15,7 +15,8 @@
       <p> Desde <%= booking.car.start_date %></p>
       <p>Hasta <%= booking.car.end_date %></p>
       <strong><%= booking.car.price %>€/día</strong>
-      <%= button_to "Cancel my book", booking_path(booking), :data => { :confirm => "Are you sure?" }, :method => :refund %>
+      <!-- not working, dont knwo how to set up the refund method with STRIPE -->
+      <%= button_to "Cancelar mi reserva", booking, :data => { :confirm => "Are you sure?" }, :method => :destroy %>
 
 
 

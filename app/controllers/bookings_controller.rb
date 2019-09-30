@@ -45,11 +45,9 @@ end
 
 def destroy
 
-  car = Car.find(params[:id])
-
-  @booking = Booking.refound!(car: car, car_sku: car.sku, amount: car.price, state: 'pending', user: current_user, photo: car.image )
-  authorize @booking
-
+  authorize @booking = Car.find(params[:id])
+  @booking.destroy
+  redirect_to  cars_path
 end
 
 
